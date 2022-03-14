@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+
+<ul class="list-group">
+
+    {% for i in ans %}
+
+        <li class="list-group-item">{{ i }}</li>
+
+    {% endfor %}
+
+</ul>
+
+{% endblock content %}

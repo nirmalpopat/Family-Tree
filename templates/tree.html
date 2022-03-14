@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+{% comment %} {{tree}} {% endcomment %}
+<ul class="list-group">
+    {% for i, j in tree.items %}
+
+        <li class="list-group-item">{{ i }}
+            {% if j %}
+                <ul class="list-group">
+                    {% for k in j %}
+                        <li class="list-group-item">{{ k }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        <li>
+
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}
