@@ -4,22 +4,18 @@ from __future__ import unicode_literals
 
 # lib imports
 from django.shortcuts import render
-from django.http import HttpResponse
 
 from django.views.generic.list import ListView
 
 # local imports
 from apps.operations.models import (
     Person,
-    Relation,
 )
 from .constant import RelationType
 
 # Create your views here.
-# [a[n]]
 
 def cousin(request, pk):
-    print('=========================')
     obj = Person.objects.get(id=pk)
     ans = []
     father = None
@@ -76,23 +72,6 @@ def tree(request, pk):
         'tree': tree
     }
     return render(request, 'tree.html', context)
-
-# class TreeView(ListView):
-#     model = Person
-#     template_name = 'tree.html'
-#     tree = {}
-#     def tree_maker(self, obj):
-#         for relation in obj.relations.all():
-#             if relation.relation == RelationType.FATHER:
-#                 if relation.person1 not in self.tree:
-#                     self.tree[relation.person1] = [relation.person2]
-#                 else:
-#                     self.tree[relation.person1] += [relation.person2]
-#                 self.tree_maker(relation.person2)
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['tree'] = self.tree
-#         return context
 
 class HomeeListView(ListView):
     model = Person

@@ -39,9 +39,3 @@ def cross_relation(sender, instance, created, **kwargs):
             relation = RelationType.BROTHER,
             person2 = instance.person1
         )
-        # person_obj = Person.objects.get(id = instance.person1.id)
-        # person2_obj = Person.objects.get(id = instance.person2.id)
-        # for person in person_obj.relations.all():
-        #     if person.relation == RelationType.FATHER:
-        #         person2_obj.relations.add(person.relation)
-        # person2_obj.save()
